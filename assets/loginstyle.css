@@ -9,6 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     transform: scale(1.5);
+    font-family: Arial, sans-serif;
 }
 
 .box-login{
