@@ -32,3 +32,55 @@ body {
     color: rgb(255, 255, 255);
     font-size: 16px;
 }
+
+
+
+.box-time {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin: 50px;
+    width: 87%;
+}
+
+
+
+.box-time .posicoes ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+
+
+.box-time .box-cards img {
+    width: 35px;
+    height: 35px;
+}
+
+
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+footer h3 {
+    color: rgb(255, 255, 255);
+}
+
+footer hr { 
+    color: rgb(255, 255, 255);
+    width: 95%;
+}
