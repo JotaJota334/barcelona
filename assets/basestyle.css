@@ -38,8 +38,6 @@ body {
     font-size: 16px;
 }
 
-
-
 .box-time {
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
@@ -52,14 +50,12 @@ body {
     width: 87%;
 }
 
-
 .box-time .posicoes ul button{
     border: none;
     border-radius: 10px;
     padding: 10px 15px;
     margin: 0px 1px;
 }
-
 
 .box-time .posicoes ul{
     list-style: none;
@@ -126,16 +122,10 @@ body {
     align-items: center;
 }
 
-
-
-
 .box-time .box-cards img {
     width: 35px;
     height: 35px;
 }
-
-
-
 
 footer {
     display: flex;
