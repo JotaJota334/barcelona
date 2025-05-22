@@ -50,6 +50,35 @@ body {
     width: 87%;
 }
 
+.box-time form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box-time form input{
+    width: 272px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 4px;
+}
+
+.box-time form button {
+    width: 288px;
+    padding: 8px;
+    margin-top: 5px;
+    background-color: rgb(155, 0, 65);
+    border: 0.8px solid;
+    border-radius: 3px;
+}
+
+.box-time form button a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
 .box-time .posicoes ul button{
     border: none;
     border-radius: 10px;
@@ -142,5 +171,5 @@ footer h3 {
 
 footer hr { 
     color: rgb(255, 255, 255);
-    width: 95%;
+    width: 100%;
 }
