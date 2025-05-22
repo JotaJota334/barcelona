@@ -3,6 +3,10 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: rgb(24, 23, 51);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .navbar { 
@@ -11,6 +15,7 @@ body {
     align-items: center;
     background: linear-gradient(90deg, rgb(0, 24, 180) 40%, rgb(75, 12, 122) 48%, rgb(155, 0, 65) 56%, rgb(155, 0, 65) 60%);
     padding: 10px 0;
+    width: 100%;
 }
 
 .navbar img {
@@ -48,6 +53,13 @@ body {
 }
 
 
+.box-time .posicoes ul button{
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: 0px 1px;
+}
+
 
 .box-time .posicoes ul{
     list-style: none;
@@ -56,6 +68,64 @@ body {
     align-items: center;
     gap: 4px;
 }
+
+.box-time .posicoes ul a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.box-time .box-cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-time .box-cards .cards{
+    border: rgb(0, 0, 0) solid;
+    border-radius: 10px;
+    width: 280px;
+    height: 300px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box-time .box-cards .cards-goleiro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.box-time .box-cards .cards-defensores{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.box-time .box-cards .cards-meio-campistas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.box-time .box-cards .cards-atacantes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.box-time .box-cards .cards-treinador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
 
