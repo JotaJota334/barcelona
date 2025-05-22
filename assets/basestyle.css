@@ -163,6 +163,7 @@ footer {
     justify-content: center;
     padding: 20px;
     margin: 20px;
+    width: 100%;
 }
 
 footer h3 {
@@ -171,5 +172,5 @@ footer h3 {
 
 footer hr { 
     color: rgb(255, 255, 255);
-    width: 100%;
+    width: 80%;
 }
