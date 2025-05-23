@@ -14,7 +14,7 @@
         <form>
             <input type="email" placeholder="Email">
             <input type="password" placeholder="Senha">
-            <button type="submit"><a href="#">LOGIN</a></button>
+            <button type="submit"><a href="views/cadastrocard.php">LOGIN</a></button>
         </form>
         <section class="box-login-footer">
             <a href="views/senha.html">Esqueci Senha</a>

@@ -65,18 +65,15 @@ body {
     border-radius: 4px;
 }
 
-.box-time form button {
+.box-time form #botao-cadastro-card {
     width: 288px;
     padding: 8px;
     margin-top: 5px;
     background-color: rgb(155, 0, 65);
+    color: rgb(255, 255, 255);
     border: 0.8px solid;
     border-radius: 3px;
-}
-
-.box-time form button a{
-    text-decoration: none;
-    color: rgb(255, 255, 255);
+    cursor: pointer;
 }
 
 .box-time .posicoes ul button{
