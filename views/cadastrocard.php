@@ -1,18 +1,17 @@
 <?php
-    include('../processamento/funcoesBD.php');
+    require_once('../processamento/funcoesBD.php');
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
         $nome = $_POST['inputNome'];
         $posicao = $_POST['inputPosicao'];
-        $imagemTmp = $_FILES['inputImagem']['tmp_name'];
 
+        $imagemTmp = $_FILES['inputImagem']['tmp_name'];
         $imagemBinario = addslashes(file_get_contents($imagemTmp));
 
         InserirCard($nome, $posicao, $imagemBinario);
 
-        header('Location: cadastrocard.php?sucesso=1');
-        exit;
+        header('Location:cadastrocard.php');
+        die();
     }
 ?> 
 

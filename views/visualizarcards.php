@@ -1,42 +1,59 @@
-<?php
-include('../processamento/funcoesBD.php');
-
-$cards = BuscarCards();
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/basestyle.css">
     <title>Visualizar Cards</title>
-    <style>
-        .card {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 15px;
-            max-width: 300px;
-        }
-        .card img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
 </head>
 <body>
+    
+    <nav class="navbar">
+        <img src="../assets/img/barcelona.png">
+        <ul>
+            <li><a href="#">Barça Lineup</a></li>
+            <li><a href="#">Cards</a></li>
+            <li><a href="#">Visualizar Cards</a></li>
+            <li><a href="#">Highlights</a></li>
+            <li><a href="#">Visualizar Highlights</a></li>
+            <li><a href="#">Visualizar Users</a></li>
+        </ul>
+    </nav>
 
-<h1>Cards cadastrados</h1>
 
-<?php if (count($cards) === 0): ?>
-    <p>Nenhum card cadastrado.</p>
-<?php else: ?>
-    <?php foreach ($cards as $card): ?>
-        <div class="card">
-            <h2><?php echo htmlspecialchars($card['nome']); ?></h2>
-            <p><strong>Posição:</strong> <?php echo htmlspecialchars($card['posicao']); ?></p>
-            <img src="data:image/jpeg;base64,<?php echo base64_encode($card['imagem']); ?>" alt="<?php echo htmlspecialchars($card['nome']); ?>" />
-        </div>
-    <?php endforeach; ?>
-<?php endif; ?>
+
+    <section class="box-time">
+
+        <h1>CARDS</h1>
+
+        <section class="box-cards">
+
+            <section class="cards">
+
+                <img src="../assets/img/Lionel Messi.jpg">
+
+                <section class="info-jogador">
+
+                    <p><strong>Nome: </strong> Lionel Messi</p>
+                    <p><strong>Posição: </strong> Atacante</p>
+
+                </section>
+
+            </section>
+
+        </section>
+
+    </section>
+
+    
+
+    <footer>
+
+        <hr>
+        <h3>Barcelona DreamTeam</h3>
+
+    </footer>
+
 
 </body>
 </html>
