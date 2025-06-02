@@ -14,6 +14,7 @@ function InserirCard($nome, $posicao, $imagem) {
 function RecuperarCard() {
     $conexao = conectarBD();
     $consulta = "SELECT nome, posicao, imagem FROM cards";
+    
     $resultado = mysqli_query($conexao, $consulta);
     
     $cards = array();
