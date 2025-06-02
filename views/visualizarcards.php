@@ -1,3 +1,9 @@
+<?php
+    require_once('../processamento/funcoesBD.php');
+
+    $cards = RecuperarCard();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,18 +34,24 @@
 
         <section class="box-cards">
 
-            <section class="cards">
+            <?php if (!empty($cards)): ?>
+                <?php foreach($cards as $card): ?>
 
-                <img src="../assets/img/Lionel Messi.jpg">
+                    <section class="cards">
+                        <img 
+                            src="data:image/jpeg;base64,<?php echo base64_encode($card['imagem']); ?>" 
+                            alt="<?php echo htmlspecialchars($card['nome']); ?>">
 
-                <section class="info-jogador">
+                        <section class="info-jogador">
+                            <p><strong>Nome:</strong> <?php echo htmlspecialchars($card['nome']); ?></p>
+                            <p><strong>Posição:</strong> <?php echo htmlspecialchars($card['posicao']); ?></p>
+                        </section>
+                    </section>
 
-                    <p><strong>Nome: </strong> Lionel Messi</p>
-                    <p><strong>Posição: </strong> Atacante</p>
-
-                </section>
-
-            </section>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Nenhum card encontrado.</p>
+            <?php endif; ?>
 
         </section>
 
