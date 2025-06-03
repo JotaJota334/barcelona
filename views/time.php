@@ -1,3 +1,27 @@
+<?php
+    session_start();
+    require_once('../processamento/funcoesBD.php');
+
+    // Verificar se o usuário selecionou um jogador
+    if (isset($_GET['posicao']) && isset($_GET['jogador'])) {
+        $_SESSION[$_GET['posicao']] = $_GET['jogador'];
+    }
+
+    // Carregar jogadores da posição
+    $goleiros = buscarPorPosicao('Goleiro');
+
+    // Verificar se há goleiro na sessão e buscar imagem
+    $goleiroSelecionado = isset($_SESSION['Goleiro']) ? $_SESSION['Goleiro'] : null;
+    $imagemGoleiro = $goleiroSelecionado ? buscarImagemPorNome($goleiroSelecionado) : null;
+
+    // 🔥 Se o jogador não existir mais no banco, limpar da sessão
+    if ($goleiroSelecionado && !$imagemGoleiro) {
+        unset($_SESSION['Goleiro']);
+        $goleiroSelecionado = null;
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,109 +59,38 @@
             </ul>
         </section>
 
-        
+        <section class="box-time">
 
-        <section class="box-cards">
+            <section class="box-cards">
 
-            <h2>Goleiro</h2>
-
-            <section class="cards-goleiro">
+                <h2>Goleiro</h2>
 
                 <section class="cards">
-
-                    <a href=""><img src="../assets/img/plus.png"></a>
-
+                    <?php if ($goleiroSelecionado): ?>
+                        <img src="data:image/jpeg;base64,<?php echo $imagemGoleiro; ?>" alt="<?php echo $goleiroSelecionado; ?>">
+                        <p><?php echo $goleiroSelecionado; ?></p>
+                    <?php else: ?>
+                        <a href="?posicao=Goleiro">
+                            <img src="../assets/img/plus.png">
+                        </a>
+                    <?php endif; ?>
                 </section>
 
-            </section>
-
-            <h2>Defensores</h2>
-
-            <section class="cards-defensores">
-
-                <section class="cards">
-
-                    <a href=""><img src="../assets/img/plus.png"></a>
-
-                </section>
-
-                <section class="cards">
-
-                    <a href=""><img src="../assets/img/plus.png"></a>
-    
-                </section>
-    
-                <section class="cards">
-    
-                    <a href=""><img src="../assets/img/plus.png"></a>
-    
-                </section>
-    
-                <section class="cards">
-    
-                    <a href=""><img src="../assets/img/plus.png"></a>
-    
-                </section>
-
-            </section>
-
-            <h2>Meio-Campistas</h2>
-
-            <section class="cards-meio-campistas">
-
-                <section class="cards">
-
-                    <a href=""><img src="../assets/img/plus.png"></a>
-
-                </section>
-
-                <section class="cards">
-
-                    <a href=""><img src="../assets/img/plus.png"></a>
-
-                </section>
-
-                <section class="cards">
-
-                    <a href=""><img src="../assets/img/plus.png"></a>
-
-                </section>
-
-            </section>
-
-            <h2>Atacantes</h2>
-
-            <section class="cards-atacantes">
-
-                <section class="cards">
-    
-                    <a href=""><img src="../assets/img/plus.png"></a>
-    
-                </section>
-    
-                <section class="cards">
-    
-                    <a href=""><img src="../assets/img/plus.png"></a>
-    
-                </section>
-    
-                <section class="cards">
-    
-                    <a href=""><img src="../assets/img/plus.png"></a>
-    
-                </section>
-
-            </section>
-
-            <h2>Treinador</h2>
-
-            <section class="cards-treinador">
-
-                <section class="cards">
-
-                    <a href=""><img src="../assets/img/plus.png"></a>
-
-                </section>
+                <!-- LISTA DE JOGADORES SE FOR CLICADO -->
+                <?php if (isset($_GET['posicao']) && $_GET['posicao'] == 'Goleiro'): ?>
+                    <div class="lista-jogadores">
+                        <h3>Selecione um Goleiro:</h3>
+                        <ul>
+                            <?php foreach ($goleiros as $goleiro): ?>
+                                <li>
+                                    <a href="?posicao=Goleiro&jogador=<?php echo urlencode($goleiro); ?>">
+                                        <?php echo htmlspecialchars($goleiro); ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
 
             </section>
 
@@ -145,15 +98,13 @@
 
     </section>
 
-
-
-
     <footer>
 
         <hr>
         <h3>Barcelona DreamTeam</h3>
 
     </footer>
+
 
 </body>
 </html>

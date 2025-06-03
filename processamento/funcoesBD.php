@@ -29,4 +29,33 @@ function RecuperarCard() {
     return $cards;
 }
 
+function buscarPorPosicao($posicao) {
+    $conexao = conectarBD();
+    $posicao = mysqli_real_escape_string($conexao, $posicao);
+    $consulta = "SELECT nome FROM cards WHERE posicao = '$posicao'";
+    $resultado = mysqli_query($conexao, $consulta);
+
+    $jogadores = [];
+    while ($linha = mysqli_fetch_assoc($resultado)) {
+        $jogadores[] = $linha['nome'];
+    }
+
+    mysqli_close($conexao);
+    return $jogadores;
+}
+
+// Buscar imagem pelo nome
+function buscarImagemPorNome($nome) {
+    $conexao = conectarBD();
+    $nome = mysqli_real_escape_string($conexao, $nome);
+    $consulta = "SELECT imagem FROM cards WHERE nome = '$nome'";
+    $resultado = mysqli_query($conexao, $consulta);
+
+    if ($linha = mysqli_fetch_assoc($resultado)) {
+        return base64_encode($linha['imagem']); // codificar imagem para exibir
+    } else {
+        return null;
+    }
+}
+
 ?>
