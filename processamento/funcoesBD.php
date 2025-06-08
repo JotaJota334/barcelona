@@ -5,6 +5,42 @@ function conectarBD() {
     return $conexao;
 }
 
+function InserirUser($nome, $email, $senha) {
+    $conexao = mysqli_connect("127.0.0.1", "root", "", "barcelona");
+    $consulta = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
+    mysqli_query($conexao, $consulta);
+}
+
+function RecuperarSenha($email) {
+    $conexao = mysqli_connect("127.0.0.1", "root", "", "barcelona");
+    $consulta = "SELECT senha from usuarios WHERE email = '$email'";
+
+    $dados = mysqli_fetch_assoc(mysqli_query($conexao, $consulta));
+    
+    return $dados['senha'];
+    
+}
+
+function AlterarSenha($email, $novaSenha) {
+    $conexao = conectarBD();
+    $consulta = "UPDATE usuarios SET senha = '$novaSenha' WHERE email = '$email'";
+    return mysqli_query($conexao, $consulta);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function InserirCard($nome, $posicao, $imagem) {
     $conexao = conectarBD();
     $consulta = "INSERT INTO cards (nome, posicao, imagem) VALUES ('$nome', '$posicao', '$imagem')";
@@ -30,17 +66,21 @@ function RecuperarCard() {
 }
 
 function buscarPorPosicao($posicao) {
-    $conexao = conectarBD();
-    $posicao = mysqli_real_escape_string($conexao, $posicao);
+
+    $posicao = mysqli_real_escape_string(conectarBD(), $posicao);
+    // mysqli_real_escape_string 
+    // irá escapar as strings e prepara-las para serem usadas em comandos SQL
+
     $consulta = "SELECT nome FROM cards WHERE posicao = '$posicao'";
-    $resultado = mysqli_query($conexao, $consulta);
+
+    $resultado = mysqli_query(conectarBD(), $consulta);
 
     $jogadores = [];
+    
     while ($linha = mysqli_fetch_assoc($resultado)) {
         $jogadores[] = $linha['nome'];
     }
 
-    mysqli_close($conexao);
     return $jogadores;
 }
 

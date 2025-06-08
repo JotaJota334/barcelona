@@ -66,8 +66,8 @@ body {
 }
 
 .box-time form #botao-cadastro-card {
-    width: 288px;
-    padding: 8px;
+    width: 290px;
+    padding: 12px;
     margin-top: 5px;
     background-color: rgb(155, 0, 65);
     color: rgb(255, 255, 255);
