@@ -29,7 +29,23 @@ function AlterarSenha($email, $novaSenha) {
 
 
 
+function recuperarTodosEmails() {
+    $conexao = conectarBD(); // Usa a função que você já tem
+    $consulta = "SELECT email FROM usuarios";
+    
+    $resultado = mysqli_query($conexao, $consulta);
 
+    $emails = [];
+
+    if (mysqli_num_rows($resultado) > 0) {
+        while ($linha = mysqli_fetch_assoc($resultado)) {
+            $emails[] = $linha['email'];
+        }
+    }
+
+    mysqli_close($conexao);
+    return $emails;
+}
 
 
 
