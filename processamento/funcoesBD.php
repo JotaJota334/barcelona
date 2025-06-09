@@ -75,4 +75,22 @@ function RecuperarCard() {
     return $cards;
 }
 
+function RecuperarHighlights() {
+    $conexao = conectarBD();
+    $consulta = "SELECT highlights, imagem FROM highlights";
+
+    $resultado = mysqli_query($conexao, $consulta);
+
+    $highlights = array();
+
+    if (mysqli_num_rows($resultado) > 0) {
+        while ($linha = mysqli_fetch_assoc($resultado)) {
+            $highlights[] = $linha;
+        }
+    }
+
+    mysqli_close($conexao);
+    return $highlights;
+}
+
 ?>
