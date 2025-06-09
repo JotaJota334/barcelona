@@ -27,8 +27,6 @@ function AlterarSenha($email, $novaSenha) {
     return mysqli_query($conexao, $consulta);
 }
 
-
-
 function recuperarTodosEmails() {
     $conexao = conectarBD(); // Usa a função que você já tem
     $consulta = "SELECT email FROM usuarios";
@@ -50,6 +48,12 @@ function recuperarTodosEmails() {
 function InserirCard($nome, $posicao, $imagem) {
     $conexao = conectarBD();
     $consulta = "INSERT INTO cards (nome, posicao, imagem) VALUES ('$nome', '$posicao', '$imagem')";
+    mysqli_query($conexao, $consulta);
+}
+
+function InserirHighlight($highlight, $imagem) {
+    $conexao = conectarBD();
+    $consulta = "INSERT INTO highlights (highlights, imagem) VALUES ('$highlight', '$imagem')";
     mysqli_query($conexao, $consulta);
 }
 

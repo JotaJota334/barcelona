@@ -161,10 +161,6 @@
 
 
 
-    </section>
-
-
-
     <footer>
         <hr>
         <h3>Barcelona DreamTeam</h3>
