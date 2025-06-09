@@ -1,3 +1,24 @@
+<?php
+session_start();
+require_once "processamento/funcoesBD.php";
+
+$erro = "";
+
+// Processa o formulário se enviado via POST
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    if (verificarLogin($email, $senha)) {
+        $_SESSION['usuario'] = $email;
+        header("Location: views/cadastrocard.php");
+        exit();
+    } else {
+        $erro = "Nome ou senha incorretos!";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,14 +32,20 @@
     <section class="box-login">
         <img src="assets/img/barcelona.png">
         <h2>FC BARCELONA</h2>
-        <form>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Senha">
-            <input type="submit" id="botao-cadastro-user" value="Entrar">
+
+        <?php if (!empty($erro)) : ?>
+            <p style="color: red; text-align: center;"><?php echo $erro; ?></p>
+        <?php endif; ?>
+
+        <form method="POST">
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <input type="submit" value="Entrar">
         </form>
+
         <section class="box-login-footer">
-            <a href="views/senha.html">Esqueci Senha</a>
-            <a href="views/cadastrouser.html">Realizar cadastro</a>
+            <a href="views/senha.php">Esqueci Senha</a>
+            <a href="views/cadastrouser.php">Realizar cadastro</a>
         </section>
     </section>
 

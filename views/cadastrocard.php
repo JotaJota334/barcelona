@@ -28,12 +28,12 @@
     <nav class="navbar">
         <img src="../assets/img/barcelona.png">
         <ul>
-            <li><a href="#">Barça Lineup</a></li>
+            <li><a href="time.php">Barça Lineup</a></li>
             <li><a href="#">Cards</a></li>
-            <li><a href="#">Visualizar Cards</a></li>
-            <li><a href="#">Highlights</a></li>
-            <li><a href="#">Visualizar Highlights</a></li>
-            <li><a href="#">Visualizar Users</a></li>
+            <li><a href="visualizarcards.php">Visualizar Cards</a></li>
+            <li><a href="cadastrohighlights.php">Highlights</a></li>
+            <li><a href="visualizarhighlights.php">Visualizar Highlights</a></li>
+            <li><a href="visualizarusers.php">Visualizar Users</a></li>
         </ul>
     </nav>
 

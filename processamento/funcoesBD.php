@@ -5,6 +5,22 @@ function conectarBD() {
     return $conexao;
 }
 
+function verificarLogin($email, $senha) {
+    $conexao = conectarBD();
+
+    $sql = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
+
+    $stmt = $conexao->prepare($sql);
+    $stmt->bind_param("ss", $email, $senha);
+    $stmt->execute();
+
+    $resultado = $stmt->get_result();
+
+    mysqli_close($conexao);
+
+    return $resultado->num_rows === 1;
+}
+
 function InserirUser($nome, $email, $senha) {
     $conexao = conectarBD();
     $consulta = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')";

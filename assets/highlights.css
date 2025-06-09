@@ -39,8 +39,39 @@ body {
 }
 
 
+.box-highlights {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin: 50px;
+    width: 87%;
+    gap: 10px;
+}
 
 
+.box-highlights .highlights {
+    border: 2px solid black;
+    border-radius: 8px;
+    width: 700px;
+    height: 500px;
+    background-color: white;
+    text-align: center;
+}
+
+
+
+.box-highlights .highlights img {
+    width: 100%;
+    height: 75%;
+}
+
+.box-highlights .highlights p {
+    margin-top: 50px;
+}
 
 
 footer {

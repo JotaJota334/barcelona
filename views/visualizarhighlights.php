@@ -17,38 +17,42 @@
     <nav class="navbar">
         <img src="../assets/img/barcelona.png">
         <ul>
-            <li><a href="#">Barça Lineup</a></li>
-            <li><a href="#">Cards</a></li>
-            <li><a href="#">Visualizar Cards</a></li>
-            <li><a href="#">Highlights</a></li>
+            <li><a href="time.php">Barça Lineup</a></li>
+            <li><a href="cadastrocard.php">Cards</a></li>
+            <li><a href="visualizarcards.php">Visualizar Cards</a></li>
+            <li><a href="cadastrohighlights.php">Highlights</a></li>
             <li><a href="#">Visualizar Highlights</a></li>
-            <li><a href="#">Visualizar Users</a></li>
+            <li><a href="visualizarusers.php">Visualizar Users</a></li>
         </ul>
     </nav>
 
 
 
-    <section class="">
+    <section class="box-highlights">
 
         <h1>HIGHLIGHTS</h1>
 
-        <section class="">
+        
 
-            <?php if (!empty($highlights)): ?>
-                <?php foreach($highlights as $highlight): ?>
+        <?php if (!empty($highlights)): ?>
 
-                    <section class="">
-                        <img src="data:image/jpeg;base64,<?php echo base64_encode($highlight['imagem']); ?>">
-                    </section>
+            <?php foreach($highlights as $highlight): ?>
 
+                <section class="highlights">
+
+                    <img src="data:image/jpeg;base64,<?php echo base64_encode($highlight['imagem']); ?>">
+                    
                     <p><?php echo ($highlight['highlights'])?></p>
 
-                <?php endforeach; ?>
-            <?php else: ?>
-                <p>Nenhum highlight encontrado.</p>
-            <?php endif; ?>
+                </section>
 
-        </section>
+            <?php endforeach; ?>
+
+        <?php else: ?>
+
+            <p>Nenhum highlight encontrado.</p>
+
+        <?php endif; ?>
 
     </section>
 
