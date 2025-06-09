@@ -8,6 +8,18 @@
 </head>
 <body>
 
+    <nav class="navbar">
+        <img src="../assets/img/barcelona.png">
+        <ul>
+            <li><a href="#">Barça Lineup</a></li>
+            <li><a href="#">Cards</a></li>
+            <li><a href="#">Visualizar Cards</a></li>
+            <li><a href="#">Highlights</a></li>
+            <li><a href="#">Visualizar Highlights</a></li>
+            <li><a href="#">Visualizar Users</a></li>
+        </ul>
+    </nav>
+
     <section class="box-login">
         <img src="../assets/img/barcelona.png">
 
@@ -25,6 +37,13 @@
             ?>
         </div>
     </section>
+
+    <footer>
+
+        <hr>
+        <h3>Barcelona DreamTeam</h3>
+
+    </footer>
 
 </body>
 </html>
