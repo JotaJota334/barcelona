@@ -10,7 +10,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (isset($_POST['Recuperar'])) {
-            $email = $_POST['inputEmail'] ?? '';
+            $email = $_POST['inputEmail'];
             $senhaRecuperada = RecuperarSenha($email);
             $exibirSomenteSenha = true;
         }

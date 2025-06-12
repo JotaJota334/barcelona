@@ -4,7 +4,7 @@ require_once "processamento/funcoesBD.php";
 
 $erro = "";
 
-// Processa o formulário se enviado via POST
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];

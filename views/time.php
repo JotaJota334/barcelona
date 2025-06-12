@@ -166,6 +166,7 @@
         <h3>Barcelona DreamTeam</h3>
     </footer>
 
+    
     <script>
     document.querySelectorAll('.form-jogador').forEach(form => {
         form.addEventListener('submit', function (e) {
